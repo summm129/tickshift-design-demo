@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#141414">
+<meta name="robots" content="noindex">
+<title>TickShift デザイン A ダーク</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#141414}
+:root{--demo-bg:#141414}
+a{color:#D9D6CF}a:hover{color:#F2F1EE}
+input{font:inherit;color:inherit}
+button{font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<div style="width: 100%; max-width: 520px; margin: 0 auto; min-height: 100vh; box-sizing: border-box; background: #141414; color: #F2F1EE; font-family: 'Inter', 'Noto Sans JP', sans-serif; padding: 0 16px 32px; display: flex; flex-direction: column; gap: 12px; font-variant-numeric: tabular-nums">
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 20px 4px 8px">
+<div style="display: flex; align-items: center; gap: 10px">
+<div style="width: 34px; height: 34px; border-radius: 11px; background: #E8E2D6; display: flex; align-items: center; justify-content: center">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16l5-5 4 3 7-7"></path></svg>
+</div>
+<span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">TickShift</span>
+</div>
+<div style="display: flex; padding: 4px; border-radius: 999px; background: #222222; gap: 2px">
+<button type="button" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; color: #A3A19B; font-size: 13px; font-weight: 600">JP Stock</button>
+<button type="button" aria-pressed="true" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: #E8E2D6; color: #141414; font-size: 13px; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0)">US Stock</button>
+</div>
+</header>
+
+<section style="background: #1F1F1F; border-radius: 24px; padding: 18px 18px 20px">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px">
+<label for="a-base" style="font-size: 13px; font-weight: 500; color: #A3A19B">前日終値</label>
+<button type="button" style="border: 0; background: transparent; color: #A3A19B; font-size: 12px; padding: 6px 0">クリア</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; height: 68px; padding: 0 20px; border-radius: 18px; background: #2A2A2A">
+<span style="font-size: 22px; color: #A3A19B">$</span>
+<input id="a-base" value="197.00" style="flex: 1; min-width: 0; border: 0; background: transparent; text-align: right; font-size: 34px; font-weight: 600; color: #F2F1EE; outline: 0">
+</div>
+<button type="button" style="display: flex; align-items: center; gap: 6px; margin-top: 14px; border: 0; background: transparent; padding: 4px 0; color: #D9D6CF; font-size: 13px; font-weight: 500">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+<span>現在値から計算</span>
+</button>
+</section>
+
+<section style="background: #1F1F1F; border-radius: 24px; padding: 18px">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px">
+<span style="font-size: 11px; font-weight: 700; color: #A3A19B; background: #2A2A2A; border-radius: 8px; padding: 4px 8px">01</span>
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">% → 株価</h2>
+<button type="button" style="margin-left: auto; border: 0; background: transparent; color: #A3A19B; font-size: 12px; padding: 6px 0">クリア</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" aria-label="符号をマイナスに切り替え" style="width: 52px; height: 52px; flex-shrink: 0; border: 0; border-radius: 16px; background: #E8E2D6; color: #141414; font-size: 24px; font-weight: 500">+</button>
+<div style="flex: 1; min-width: 0; display: flex; align-items: center; height: 52px; padding: 0 16px; border-radius: 16px; background: #2A2A2A">
+<label for="a-rate" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">前日比</label>
+<input id="a-rate" value="2.5" style="flex: 1; min-width: 0; border: 0; background: transparent; text-align: right; font-size: 24px; font-weight: 600; outline: 0">
+<span style="margin-left: 6px; font-size: 16px; color: #A3A19B">%</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px">
+<button type="button" aria-label="1増やす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button>
+<button type="button" aria-label="0.1増やす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="14" viewBox="0 0 24 28" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13l6-6 6 6M6 21l6-6 6 6"></path></svg></button>
+<button type="button" aria-label="1減らす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" aria-label="0.1減らす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="14" viewBox="0 0 24 28" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7l6 6 6-6M6 15l6 6 6-6"></path></svg></button>
+</div>
+</div>
+<div style="display: flex; gap: 6px; margin-top: 12px">
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">1%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">2%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">3%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">4%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">5%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">7%</button>
+<button type="button" style="flex: 1; height: 34px; border: 1px solid #333333; border-radius: 999px; background: #1F1F1F; color: #D9D6CF; font-size: 12px; padding: 0">10%</button>
+</div>
+<div style="margin-top: 16px; border-radius: 18px; background: #2E2220; padding: 18px 18px 14px">
+<div style="font-size: 12px; color: #C9B1AB">株価</div>
+<div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px; color: #FF9585">
+<span style="font-size: 20px; font-weight: 600">$</span>
+<span style="font-size: 42px; font-weight: 700; letter-spacing: -0.02em">201.925</span>
+</div>
+<div style="font-size: 12px; color: #C9B1AB; margin-top: 2px">約 $201.93（1セント単位）</div>
+<div style="display: flex; justify-content: space-between; border-top: 1px solid #3D2D2A; margin-top: 12px; padding-top: 10px; font-size: 13px">
+<span style="color: #C9B1AB">値幅</span><span style="color: #FF9585; font-weight: 600">+$4.925</span>
+</div>
+</div>
+</section>
+
+<section style="background: #1F1F1F; border-radius: 24px; padding: 18px">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px">
+<span style="font-size: 11px; font-weight: 700; color: #A3A19B; background: #2A2A2A; border-radius: 8px; padding: 4px 8px">02</span>
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">株価 → %<br></h2>
+<button type="button" style="margin-left: auto; border: 0; background: transparent; color: #A3A19B; font-size: 12px; padding: 6px 0">クリア</button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="flex: 1; min-width: 0; display: flex; align-items: center; height: 52px; padding: 0 16px; border-radius: 16px; background: #2A2A2A">
+<span style="font-size: 18px; color: #A3A19B">$</span>
+<label for="a-price" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">株価</label>
+<input id="a-price" value="192.40" style="flex: 1; min-width: 0; border: 0; background: transparent; text-align: right; font-size: 24px; font-weight: 600; outline: 0">
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px">
+<button type="button" aria-label="1ドル増やす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button>
+<button type="button" aria-label="1セント増やす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="14" viewBox="0 0 24 28" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13l6-6 6 6M6 21l6-6 6 6"></path></svg></button>
+<button type="button" aria-label="1ドル減らす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" aria-label="1セント減らす" style="width: 40px; height: 24px; border: 0; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center"><svg width="12" height="14" viewBox="0 0 24 28" fill="none" stroke="#D9D6CF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7l6 6 6-6M6 15l6 6 6-6"></path></svg></button>
+</div>
+</div>
+<div style="margin-top: 16px; border-radius: 18px; background: #1E2633; padding: 18px 18px 14px">
+<div style="font-size: 12px; color: #A9B6C8">前日比</div>
+<div style="display: flex; align-items: baseline; gap: 4px; margin-top: 4px; color: #8FB8FF">
+<span style="font-size: 42px; font-weight: 700; letter-spacing: -0.02em">−2.34</span>
+<span style="font-size: 20px; font-weight: 600">%</span>
+</div>
+<div style="display: flex; justify-content: space-between; border-top: 1px solid #2C3646; margin-top: 12px; padding-top: 10px; font-size: 13px">
+<span style="color: #A9B6C8">値幅</span><span style="color: #8FB8FF; font-weight: 600">−$4.60</span>
+</div>
+</div>
+</section>
+
+<section style="background: #1F1F1F; border-radius: 24px; padding: 18px">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px">
+<span style="font-size: 11px; font-weight: 700; color: #A3A19B; background: #2A2A2A; border-radius: 8px; padding: 4px 8px">03</span>
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">損益分岐点</h2>
+<div role="group" aria-label="口座" style="margin-left: auto; display: flex; padding: 3px; border-radius: 999px; background: #2A2A2A; gap: 2px"><button type="button" aria-pressed="true" data-acct-btn="t" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: #E8E2D6; color: #141414; box-shadow: 0 1px 3px rgba(0,0,0,0)">特定</button><button type="button" aria-pressed="false" data-acct-btn="n" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: transparent; color: #A3A19B; box-shadow: none">NISA</button></div>
+</div>
+<label for="a-buy" style="display: block; font-size: 12px; color: #A3A19B; margin: 0 0 6px 0">買付約定価格</label>
+<div style="display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 18px; border-radius: 16px; background: #2A2A2A">
+<span style="font-size: 18px; color: #A3A19B">$</span>
+<input id="a-buy" value="197.00" style="flex: 1; min-width: 0; border: 0; background: transparent; color: inherit; text-align: right; font-size: 26px; font-weight: 600; outline: 0">
+</div>
+<button type="button" aria-expanded="false" data-fix-btn style="display: flex; align-items: center; gap: 6px; margin-top: 12px; border: 0; background: transparent; padding: 4px 0; color: #D9D6CF; font-size: 13px; font-weight: 500">
+<svg data-chev style="transition: transform 0.15s" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+<span>取得単価を訂正する</span>
+</button>
+<div data-fix hidden>
+<div style="margin-top: 8px; padding: 14px; border-radius: 18px; border: 1px solid #2E2E2E">
+<label for="a-cost" style="display: block; font-size: 12px; color: #A3A19B; margin-bottom: 6px">取得単価（アプリ表示）</label>
+<div style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px; border-radius: 16px; background: #2A2A2A">
+<span style="font-size: 15px; color: #A3A19B">$</span>
+<input id="a-cost" value="197.96" style="flex: 1; min-width: 0; border: 0; background: transparent; color: inherit; text-align: right; font-size: 20px; font-weight: 600; outline: 0">
+</div>
+<p style="margin: 8px 0 0; font-size: 11px; line-height: 1.6; color: #A3A19B">入れると、約定価格との差を買付手数料として計算します。</p>
+</div>
+</div>
+<div data-acct="t">
+<div style="margin-top: 16px; border-radius: 20px; background: #E8E2D6; color: #141414; padding: 18px 20px">
+<div style="font-size: 12px; font-weight: 600; color: #4A463E">特定口座で利益が出る株価</div>
+<div style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px"><span style="font-size: 38px; font-weight: 700; letter-spacing: -0.02em">$198.96</span><span style="font-size: 15px; font-weight: 600; color: #4A463E">以上</span></div>
+</div>
+<div style="margin-top: 12px; border: 1px solid #2E2E2E; border-radius: 16px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px">
+<tbody>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; ">買付約定価格</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">買付手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0.96</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">実質取得費用</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$197.96</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">売却手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0.98</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">SEC Fee</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0.01</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">損益分岐点</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$198.95</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div data-acct="n" hidden>
+<div style="margin-top: 16px; border-radius: 20px; background: #E8E2D6; color: #141414; padding: 18px 20px">
+<div style="font-size: 12px; font-weight: 600; color: #4A463E">NISA口座で利益が出る株価</div>
+<div style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px"><span style="font-size: 38px; font-weight: 700; letter-spacing: -0.02em">$197.02</span><span style="font-size: 15px; font-weight: 600; color: #4A463E">以上</span></div>
+</div>
+<div style="margin-top: 12px; border: 1px solid #2E2E2E; border-radius: 16px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px">
+<tbody>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; ">買付約定価格</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">買付手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">実質取得費用</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">売却手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">SEC Fee</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$0.01</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #D9D6CF; border-top: 1px solid #2E2E2E; ">損益分岐点</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #2E2E2E; ">$197.01</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="margin: 12px 2px 0; font-size: 11px; line-height: 1.7; color: #A3A19B">楽天証券・米国株。1株あたり・外貨決済の概算。特定口座の手数料は税込0.495%（買付は切り捨て、売却は四捨五入）。SEC Feeは売却代金×0.0000206ドル、最低0.01ドル。</p>
+</section>
+
+<footer style="display: flex; justify-content: space-between; align-items: center; padding: 8px 4px; font-size: 12px; color: #A3A19B">
+<span><br></span>
+<button type="button" style="border: 0; background: transparent; color: #D9D6CF; font-size: 12px; font-weight: 600; padding: 8px 0">すべてクリア</button>
+</footer>
+</div>
+<nav aria-label="デザインの切り替え" style="max-width: 520px; margin: 0 auto; box-sizing: border-box; padding: 8px 20px calc(28px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 6px; font-size: 13px; color: #A3A19B"><a href="./" style="margin-right: auto; color: #A3A19B">一覧</a><a href="design-a-light.html" aria-label="A ライト" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #2E2E2E; color: #F2F1EE; text-decoration: none">A☀</a><span aria-current="page" aria-label="A ダーク" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: #F2F1EE; color: var(--demo-bg); font-weight: 600">A☾</span><a href="design-c-light.html" aria-label="C ライト" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #2E2E2E; color: #F2F1EE; text-decoration: none">C☀</a><a href="design-c-dark.html" aria-label="C ダーク" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #2E2E2E; color: #F2F1EE; text-decoration: none">C☾</a></nav>
+<script>
+(() => {
+  const ON = "height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: #E8E2D6; color: #141414; box-shadow: 0 1px 3px rgba(0,0,0,0)", OFF = "height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: transparent; color: #A3A19B; box-shadow: none", TON = "", TOFF = "";
+  for (const btn of document.querySelectorAll("[data-acct-btn]")) btn.addEventListener("click", () => {
+    for (const b of document.querySelectorAll("[data-acct-btn]")) {
+      const active = b === btn;
+      b.setAttribute("aria-pressed", String(active));
+      b.setAttribute("style", active ? ON : OFF);
+    }
+    for (const panel of document.querySelectorAll("[data-acct]")) panel.hidden = panel.dataset.acct !== btn.dataset.acctBtn;
+  });
+  const fixBtn = document.querySelector("[data-fix-btn]");
+  fixBtn.addEventListener("click", () => {
+    const open = fixBtn.getAttribute("aria-expanded") !== "true";
+    fixBtn.setAttribute("aria-expanded", String(open));
+    document.querySelector("[data-fix]").hidden = !open;
+    document.querySelector("[data-chev]").style.transform = open ? "rotate(90deg)" : "";
+  });
+  const tabs = document.querySelectorAll("[data-tab]");
+  for (const tab of tabs) tab.addEventListener("click", () => {
+    for (const t of tabs) {
+      const active = t === tab;
+      t.setAttribute("aria-selected", String(active));
+      t.setAttribute("style", active ? TON : TOFF);
+      document.querySelector(`[data-panel="${t.dataset.tab}"]`).hidden = !active;
+    }
+  });
+})();
+</script>
+</body>
+</html>

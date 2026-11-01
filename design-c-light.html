@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ECEEF0">
 <meta name="robots" content="noindex">
-<title>TickShift デザイン案 C. Mist</title>
+<title>TickShift デザイン C ライト</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
 <style>
 body{margin:0;background:#ECEEF0}
 :root{--demo-bg:#ECEEF0}
 a{color:#3D4450}a:hover{color:#1F242C}
-input{font:inherit}
+input{font:inherit;color:inherit}
 button{font:inherit;cursor:pointer}
 </style>
 </head>
@@ -113,44 +113,66 @@ button{font:inherit;cursor:pointer}
 
 <div data-panel="3" hidden>
 <section style="background: #FFFFFF; border-radius: 28px; padding: 20px; box-shadow: 0 2px 10px rgba(31,36,44,0.05)">
-<div style="font-size: 12px; color: #5F6670; margin-bottom: 10px">楽天証券・米国株</div>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
-<div>
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 700">損益分岐点</h2>
+<div role="group" aria-label="口座" style="margin-left: auto; display: flex; padding: 3px; border-radius: 999px; background: #ECEEF0; gap: 2px"><button type="button" aria-pressed="true" data-acct-btn="t" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: #FFFFFF; color: #1F242C; box-shadow: 0 1px 3px rgba(31,36,44,0.12)">特定</button><button type="button" aria-pressed="false" data-acct-btn="n" style="height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: transparent; color: #5F6670; box-shadow: none">NISA</button></div>
+</div>
 <label for="c-buy" style="display: block; font-size: 12px; color: #5F6670; margin: 0 0 6px 6px">買付約定価格</label>
-<div style="display: flex; align-items: center; height: 48px; padding: 0 16px; border-radius: 999px; background: #ECEEF0">
+<div style="display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 18px; border-radius: 999px; background: #ECEEF0">
+<span style="font-size: 18px; color: #5F6670">$</span>
+<input id="c-buy" value="197.00" style="flex: 1; min-width: 0; border: 0; background: transparent; color: inherit; text-align: right; font-size: 26px; font-weight: 600; outline: 0">
+</div>
+<button type="button" aria-expanded="false" data-fix-btn style="display: flex; align-items: center; gap: 6px; margin-top: 12px; border: 0; background: transparent; padding: 4px 0; color: #3D4450; font-size: 13px; font-weight: 500">
+<svg data-chev style="transition: transform 0.15s" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+<span>取得単価を訂正する</span>
+</button>
+<div data-fix hidden>
+<div style="margin-top: 8px; padding: 14px; border-radius: 18px; border: 1px solid #E3E6EA">
+<label for="c-cost" style="display: block; font-size: 12px; color: #5F6670; margin-bottom: 6px">取得単価（アプリ表示）</label>
+<div style="display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px; border-radius: 999px; background: #ECEEF0">
 <span style="font-size: 15px; color: #5F6670">$</span>
-<input id="c-buy" value="197.00" style="flex: 1; min-width: 0; border: 0; background: transparent; text-align: right; font-size: 19px; font-weight: 600; outline: 0">
+<input id="c-cost" value="197.96" style="flex: 1; min-width: 0; border: 0; background: transparent; color: inherit; text-align: right; font-size: 20px; font-weight: 600; outline: 0">
+</div>
+<p style="margin: 8px 0 0; font-size: 11px; line-height: 1.6; color: #5F6670">入れると、約定価格との差を買付手数料として計算します。</p>
 </div>
 </div>
-<div>
-<label for="c-cost" style="display: block; font-size: 12px; color: #5F6670; margin: 0 0 6px 6px">取得単価（任意）</label>
-<div style="display: flex; align-items: center; height: 48px; padding: 0 16px; border-radius: 999px; background: #ECEEF0">
-<span style="font-size: 15px; color: #5F6670">$</span>
-<input id="c-cost" value="197.96" style="flex: 1; min-width: 0; border: 0; background: transparent; text-align: right; font-size: 19px; font-weight: 600; outline: 0">
+<div data-acct="t">
+<div style="margin-top: 16px; border-radius: 24px; background: #2B3038; color: #F4F5F7; padding: 18px 20px">
+<div style="font-size: 12px; font-weight: 600; color: #AEB4BE">特定口座で利益が出る株価</div>
+<div style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px"><span style="font-size: 38px; font-weight: 700; letter-spacing: -0.02em">$198.96</span><span style="font-size: 15px; font-weight: 600; color: #AEB4BE">以上</span></div>
 </div>
-</div>
-</div>
-<div style="margin-top: 16px; border-radius: 20px; background: #F6F7F8; overflow: hidden">
+<div style="margin-top: 12px; background: #F6F7F8; border-radius: 20px; overflow: hidden">
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px">
-<thead>
-<tr>
-<th scope="col" style="width: 36%; text-align: left; padding: 12px 10px 8px; font-size: 11px; font-weight: 600; color: #5F6670">項目</th>
-<th scope="col" style="text-align: right; padding: 12px 10px 8px; font-size: 11px; font-weight: 600; color: #5F6670; border-left: 1px solid #E3E6EA">特定口座</th>
-<th scope="col" style="text-align: right; padding: 12px 10px 8px; font-size: 11px; font-weight: 600; color: #5F6670; border-left: 1px solid #E3E6EA">NISA口座</th>
-</tr>
-</thead>
 <tbody>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">買付約定価格</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.00</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.00</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">買付手数料</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0.96</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">実質取得費用</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.96</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.00</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">売却手数料</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0.98</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">SEC Fee</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0.01</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$0.01</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 9px 10px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA">損益分岐点</th><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$198.95</td><td style="text-align: right; padding: 9px 10px; font-weight: 600; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.01</td></tr>
-<tr><th scope="row" style="text-align: left; padding: 12px 10px; font-weight: 700; color: #1F242C; border-top: 1px solid #E3E6EA">利益が出る株価（以上）</th><td style="text-align: right; padding: 12px 10px; font-weight: 700; color: #B3402F; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$198.96</td><td style="text-align: right; padding: 12px 10px; font-weight: 700; color: #B3402F; border-top: 1px solid #E3E6EA; border-left: 1px solid #E3E6EA">$197.02</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; ">買付約定価格</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">買付手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0.96</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">実質取得費用</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$197.96</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">売却手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0.98</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">SEC Fee</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0.01</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">損益分岐点</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$198.95</td></tr>
 </tbody>
 </table>
 </div>
-<p style="margin: 12px 4px 0; font-size: 11px; line-height: 1.7; color: #5F6670">1株あたり・外貨決済の概算。特定口座の手数料は税込0.495%（買付は切り捨て、売却は四捨五入）。SEC Feeは売却代金×0.0000206ドル、最低0.01ドル。</p>
+</div>
+<div data-acct="n" hidden>
+<div style="margin-top: 16px; border-radius: 24px; background: #2B3038; color: #F4F5F7; padding: 18px 20px">
+<div style="font-size: 12px; font-weight: 600; color: #AEB4BE">NISA口座で利益が出る株価</div>
+<div style="display: flex; align-items: baseline; gap: 6px; margin-top: 6px"><span style="font-size: 38px; font-weight: 700; letter-spacing: -0.02em">$197.02</span><span style="font-size: 15px; font-weight: 600; color: #AEB4BE">以上</span></div>
+</div>
+<div style="margin-top: 12px; background: #F6F7F8; border-radius: 20px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px">
+<tbody>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; ">買付約定価格</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">買付手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">実質取得費用</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$197.00</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">売却手数料</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">SEC Fee</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$0.01</td></tr>
+<tr><th scope="row" style="text-align: left; padding: 10px 14px; font-weight: 400; color: #3D4450; border-top: 1px solid #E3E6EA; ">損益分岐点</th><td style="text-align: right; padding: 10px 14px; font-weight: 600; border-top: 1px solid #E3E6EA; ">$197.01</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="margin: 12px 2px 0; font-size: 11px; line-height: 1.7; color: #5F6670">楽天証券・米国株。1株あたり・外貨決済の概算。特定口座の手数料は税込0.495%（買付は切り捨て、売却は四捨五入）。SEC Feeは売却代金×0.0000206ドル、最低0.01ドル。</p>
 </section>
 </div>
 
@@ -159,17 +181,31 @@ button{font:inherit;cursor:pointer}
 <button type="button" style="border: 0; background: transparent; color: #3D4450; font-size: 12px; font-weight: 600; padding: 8px 0">すべてクリア</button>
 </footer>
 </div>
-<nav aria-label="デザイン案の切り替え" style="max-width: 520px; margin: 0 auto; box-sizing: border-box; padding: 8px 20px calc(28px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 8px; font-size: 13px; color: #5F6670"><span style="margin-right: auto">デザイン案デモ</span><a href="design-a-stone.html" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #DEE1E5; color: #1F242C; display: inline-flex; align-items: center; text-decoration: none">A</a><a href="design-b-graphite.html" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #DEE1E5; color: #1F242C; display: inline-flex; align-items: center; text-decoration: none">B</a><span aria-current="page" style="height: 36px; padding: 0 14px; border-radius: 999px; background: #1F242C; color: var(--demo-bg); display: inline-flex; align-items: center; font-weight: 600">C</span></nav>
+<nav aria-label="デザインの切り替え" style="max-width: 520px; margin: 0 auto; box-sizing: border-box; padding: 8px 20px calc(28px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 6px; font-size: 13px; color: #5F6670"><a href="./" style="margin-right: auto; color: #5F6670">一覧</a><a href="design-a-light.html" aria-label="A ライト" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #DEE1E5; color: #1F242C; text-decoration: none">A☀</a><a href="design-a-dark.html" aria-label="A ダーク" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #DEE1E5; color: #1F242C; text-decoration: none">A☾</a><span aria-current="page" aria-label="C ライト" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: #1F242C; color: var(--demo-bg); font-weight: 600">C☀</span><a href="design-c-dark.html" aria-label="C ダーク" style="height: 36px; min-width: 44px; padding: 0 10px; box-sizing: border-box; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #DEE1E5; color: #1F242C; text-decoration: none">C☾</a></nav>
 <script>
 (() => {
-  const on = "height: 40px; border: 0; border-radius: 999px; font-size: 13px; padding: 0; background: #FFFFFF; color: #1F242C; font-weight: 700; box-shadow: 0 1px 3px rgba(31,36,44,0.12)";
-  const off = "height: 40px; border: 0; border-radius: 999px; font-size: 13px; padding: 0; background: transparent; color: #5F6670; font-weight: 500";
+  const ON = "height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: #FFFFFF; color: #1F242C; box-shadow: 0 1px 3px rgba(31,36,44,0.12)", OFF = "height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 12px; font-weight: 600; background: transparent; color: #5F6670; box-shadow: none", TON = "height: 40px; border: 0; border-radius: 999px; font-size: 13px; padding: 0; background: #FFFFFF; color: #1F242C; font-weight: 700; box-shadow: 0 1px 3px rgba(31,36,44,0.12)", TOFF = "height: 40px; border: 0; border-radius: 999px; font-size: 13px; padding: 0; background: transparent; color: #5F6670; font-weight: 500";
+  for (const btn of document.querySelectorAll("[data-acct-btn]")) btn.addEventListener("click", () => {
+    for (const b of document.querySelectorAll("[data-acct-btn]")) {
+      const active = b === btn;
+      b.setAttribute("aria-pressed", String(active));
+      b.setAttribute("style", active ? ON : OFF);
+    }
+    for (const panel of document.querySelectorAll("[data-acct]")) panel.hidden = panel.dataset.acct !== btn.dataset.acctBtn;
+  });
+  const fixBtn = document.querySelector("[data-fix-btn]");
+  fixBtn.addEventListener("click", () => {
+    const open = fixBtn.getAttribute("aria-expanded") !== "true";
+    fixBtn.setAttribute("aria-expanded", String(open));
+    document.querySelector("[data-fix]").hidden = !open;
+    document.querySelector("[data-chev]").style.transform = open ? "rotate(90deg)" : "";
+  });
   const tabs = document.querySelectorAll("[data-tab]");
   for (const tab of tabs) tab.addEventListener("click", () => {
     for (const t of tabs) {
       const active = t === tab;
       t.setAttribute("aria-selected", String(active));
-      t.setAttribute("style", active ? on : off);
+      t.setAttribute("style", active ? TON : TOFF);
       document.querySelector(`[data-panel="${t.dataset.tab}"]`).hidden = !active;
     }
   });
